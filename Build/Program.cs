@@ -4,9 +4,11 @@ namespace AdventOfCode2019
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MassCompilier MassValue = new MassCompilier();
+            Console.WriteLine(MassValue.tDistance + " Total Fuel Needed.");
         }
     }
 }

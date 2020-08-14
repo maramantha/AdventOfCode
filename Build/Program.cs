@@ -29,7 +29,14 @@ namespace AdventOfCode2019
         private static string VenusPW()
         {
             PasswordCheck PWC = new PasswordCheck(372037, 905157);
+                       
             return PWC.Password.ToString();
+        }
+        private static string ACSystemCheck(int i)
+        {
+            IntCodes IC = new IntCodes(i);
+            IC.TEST(i);
+            return "Hello World!";
         }
         static void Main(string[] args)
         {
@@ -39,7 +46,8 @@ namespace AdventOfCode2019
             //string[] output = WireCross();
             //Console.WriteLine(output[0]);
             //Console.WriteLine(output[1]);
-            Console.WriteLine(VenusPW());
+            Console.WriteLine(VenusPW() + " Number of Possible Passwords.");
+            //Console.WriteLine(ACSystemCheck(1));
         }
     }
 }

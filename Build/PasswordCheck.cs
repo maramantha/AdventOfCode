@@ -21,20 +21,26 @@ namespace AdventOfCode2019
             public int minVal;
             public int maxVal;
         }
+        public List<TestCases> testing = new List<TestCases>();
+        public struct TestCases
+        {
+            public int testID;
+            public bool adjecentValue;
+            public bool incrementalCheck;
+        }
         private bool adjacentMatch(int val)
         {
-            PWHitCounter HC = new PWHitCounter();
             List<PWHitCounter> LPW = new List<PWHitCounter>();
-            bool chkOutput = true;
             char[] chkVal = val.ToString().ToCharArray();
             for (int i = 0; i < chkVal.Length-1; i++)
             {
                 if(chkVal[i] == chkVal[i+1])
                 {
+                    
                     PWHitCounter HC1 = new PWHitCounter();
                     HC1.chkMatch = chkVal[i];
                     HC1.numberOfHits = 2;
-                    for (int j = i +1; j<chkVal.Length-1;j++)
+                    for (int j = i +2; j<=chkVal.Length-1;j++)
                     {
                         
                         if (chkVal[j] == chkVal[i])
@@ -55,12 +61,11 @@ namespace AdventOfCode2019
             {
                 foreach (PWHitCounter Hit in LPW)
                 {
-                    if (Hit.numberOfHits % 2 != 0)
+                    if (Hit.numberOfHits == 2)
                     {
-                        chkOutput = false;
+                        return true;
                     }
                 }
-                return chkOutput;
             }
 
                 return false;
@@ -82,11 +87,17 @@ namespace AdventOfCode2019
         {
             for(int i = bd.minVal; i <= bd.maxVal; i++)
             {
-                if(i > 100000)
+                if (i > 100000)
                 {
+                    if(i == 377888)
+                    {
+                        int alpha = 1;
+                    }
+                        TestCases TC = new TestCases { testID = i, adjecentValue = adjacentMatch(i), incrementalCheck = NeverDecrease(i) };
+                    testing.Add(TC);
                     if(adjacentMatch(i))
                     {
-                        if(NeverDecrease(i))
+                        if (NeverDecrease(i))
                         {
                             _Password++;
                         }

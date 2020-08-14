@@ -4,14 +4,42 @@ namespace AdventOfCode2019
 {
     class Program
     {
-        
-        static void Main(string[] args)
+        private static string MassCalculator()
         {
             MassCompilier MassValue = new MassCompilier();
-            Console.WriteLine(MassValue.tDistance + " Total Fuel Needed.");
+            return MassValue.tDistance.ToString() + " Total Fuel Needed.";
+        }
+        
+        private static string IntCodesFinder()
+        {
             IntCodes IC = new IntCodes(19690720);
-                Console.WriteLine(IC.IntCodeOutput[0].ToString());
-            Console.WriteLine(IC.NounVerb);
+            return "Orgin Int Value: " + IC.IntCodeOutput[0].ToString() + " Noun/Verb Output: " + IC.NounVerb.ToString();
+
+        }
+        private static string[] WireCross()
+        {
+            WireGenerator WG = new WireGenerator();
+            
+            string[] Partition = new string[2];
+            Partition[0] = WG.ManhattanNumber.ToString() + " is the Manhattan Number to the closest collision.";
+            Partition[1] = WG.CollisonLength() + " is the closest collision in terms of steps.";
+
+            return Partition;
+        }
+        private static string VenusPW()
+        {
+            PasswordCheck PWC = new PasswordCheck(372037, 905157);
+            return PWC.Password.ToString();
+        }
+        static void Main(string[] args)
+        {
+
+            //Console.WriteLine(MassCalculator());
+            //Console.WriteLine(IntCodesFinder());
+            //string[] output = WireCross();
+            //Console.WriteLine(output[0]);
+            //Console.WriteLine(output[1]);
+            Console.WriteLine(VenusPW());
         }
     }
 }

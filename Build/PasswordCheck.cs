@@ -36,13 +36,11 @@ namespace AdventOfCode2019
             {
                 if(chkVal[i] == chkVal[i+1])
                 {
-                    
                     PWHitCounter HC1 = new PWHitCounter();
                     HC1.chkMatch = chkVal[i];
                     HC1.numberOfHits = 2;
                     for (int j = i +2; j<=chkVal.Length-1;j++)
                     {
-                        
                         if (chkVal[j] == chkVal[i])
                         {
                             HC1.numberOfHits++;
@@ -50,11 +48,9 @@ namespace AdventOfCode2019
                         } else
                         {
                             j = chkVal.Length;
-                            
                         }
                     }
                     LPW.Add(HC1);
-
                 }
             }
             if (LPW.Count > 0)
@@ -89,11 +85,7 @@ namespace AdventOfCode2019
             {
                 if (i > 100000)
                 {
-                    if(i == 377888)
-                    {
-                        int alpha = 1;
-                    }
-                        TestCases TC = new TestCases { testID = i, adjecentValue = adjacentMatch(i), incrementalCheck = NeverDecrease(i) };
+                    TestCases TC = new TestCases { testID = i, adjecentValue = adjacentMatch(i), incrementalCheck = NeverDecrease(i) };
                     testing.Add(TC);
                     if(adjacentMatch(i))
                     {

@@ -97,15 +97,6 @@ namespace AdventOfCode2019
             fillInLayers(ref Layers, input,width,height);
             int layerValue = findLine(ref Layers);
             int output = 0;
-            //using (System.IO.StreamWriter file =
-            //new System.IO.StreamWriter(@"C:\Users\Public\TestFolder\WriteLines2.csv",true))
-            //{
-            //    foreach (string line in Layers)
-            //    {
-            //        file.WriteLine(line);
-            //        output++;
-            //    }
-            //}
             int a = 0;
             int b = 0;
             for (int i = 0;  i < height; i++)
